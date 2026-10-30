@@ -1,0 +1,6 @@
+'use client'
+import Link from 'next/link'
+import { Menu, X } from 'lucide-react'
+import { useState } from 'react'
+
+export function SiteHeader(){const [open,setOpen]=useState(false);return <header className="fixed inset-x-0 top-0 z-50 text-[#f8f3e9]"><div className="mx-auto flex h-20 max-w-[1400px] items-center justify-between px-6 lg:px-12"><Link href="/" className="text-xs font-bold uppercase tracking-[.28em]">SNH-INC <span className="text-[#d8b76a]">/ Bahamas</span></Link><nav className="hidden items-center gap-10 text-xs uppercase tracking-[.2em] md:flex"><Link href="/" className="hover:text-[#d8b76a]">Home</Link><Link href="/about" className="hover:text-[#d8b76a]">About</Link><Link href="/contact" className="rounded-full border border-white/40 px-5 py-2.5 hover:border-[#d8b76a] hover:text-[#d8b76a]">Start a conversation</Link></nav><button aria-label="Toggle menu" onClick={()=>setOpen(!open)} className="md:hidden">{open?<X/>:<Menu/>}</button></div>{open&&<nav className="flex flex-col gap-6 bg-[#082c36] px-6 pb-8 pt-4 text-sm uppercase tracking-[.2em] md:hidden"><Link href="/" onClick={()=>setOpen(false)}>Home</Link><Link href="/about" onClick={()=>setOpen(false)}>About</Link><Link href="/contact" onClick={()=>setOpen(false)}>Contact</Link></nav>}</header>}

@@ -1,0 +1,5 @@
+import Link from 'next/link'
+
+export function SiteFooter() {
+  return <footer className="bg-[#061f27] text-white"><div className="mx-auto grid max-w-7xl gap-10 px-6 py-16 md:grid-cols-3 lg:px-10"><div><p className="mb-4 text-xs font-semibold tracking-[0.2em] text-cyan-300">ABOUT US</p><p className="max-w-sm text-sm leading-7 text-slate-400">In the early days, Rum Cay was home to Arawak Indians. But by the start of the 16th century, the island had become a quiet canvas for opportunity.</p></div><div><p className="mb-4 text-xs font-semibold tracking-[0.2em] text-cyan-300">OUR ADDRESS</p><p className="text-sm italic text-slate-400">1 Long Beach, Rum Cay, Bahamas, BA10</p><Link href="/contact" className="mt-3 inline-block text-sm text-cyan-300 hover:text-white">Contact us</Link></div><div><p className="mb-4 text-xs font-semibold tracking-[0.2em] text-cyan-300">FOLLOW US</p><p className="text-sm text-slate-400">Stay in touch with us</p></div></div><div className="border-t border-white/10 px-6 py-5 text-center text-xs text-slate-500">© {new Date().getFullYear()} SNH-INC Bahamas. All rights reserved.</div></footer>
+}
