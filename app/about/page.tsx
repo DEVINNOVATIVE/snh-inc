@@ -1,5 +1,7 @@
-import { CtaBand } from '@/components/shared/cta-band'
+import { AddressSection } from '@/components/about/address-section'
 import { FounderNote, Story } from '@/components/about/story'
+import { RumCayHistory } from '@/components/about/rum-cay-history'
+import { CtaBand } from '@/components/shared/cta-band'
 import { PageHero } from '@/components/shared/page-hero'
 import { SectionHeading } from '@/components/shared/section-heading'
 import { ValuesGrid } from '@/components/shared/values-grid'
@@ -17,7 +19,8 @@ export default function About() {
         body="We bring together homes, land, and business opportunities for people who care about the islands and want to build something lasting."
       />
       <Story />
-      <section className="bg-sand-300/60 px-6 py-24 md:py-32 lg:px-8">
+      <RumCayHistory />
+      <section className="px-6 py-24 md:py-32 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <SectionHeading
             eyebrow="What guides us"
@@ -33,6 +36,7 @@ export default function About() {
         </div>
       </section>
       <FounderNote />
+      <AddressSection />
       <CtaBand
         title="Let us learn about your goals."
         body="Whether you are looking for a home, a parcel of land, or a business partner, we would love to hear from you."

@@ -1,5 +1,6 @@
 import { ContactDetails } from '@/components/contact/contact-details'
 import { ContactForm } from '@/components/contact/contact-form'
+import { LocationMap } from '@/components/shared/location-map'
 import { PageHero } from '@/components/shared/page-hero'
 import { Reveal } from '@/components/shared/reveal'
 import { SectionHeading } from '@/components/shared/section-heading'
@@ -39,18 +40,7 @@ export default function Contact() {
         </Reveal>
       </section>
 
-      <section className="px-6 pb-24 md:pb-32 lg:px-8">
-        <Reveal>
-          <div className="mx-auto max-w-7xl overflow-hidden rounded-3xl ring-1 ring-sand-400/60">
-            <iframe
-              title="SNH-INC Bahamas location map"
-              src="https://www.google.com/maps?q=Rum+Cay,+The+Bahamas&output=embed"
-              className="h-[320px] w-full border-0 md:h-[430px]"
-              loading="lazy"
-            />
-          </div>
-        </Reveal>
-      </section>
+      <LocationMap />
     </main>
   )
 }
