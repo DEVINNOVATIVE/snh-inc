@@ -1,6 +1,56 @@
-import { SiteHeader } from '@/components/site-header'
-import { SiteFooter } from '@/components/site-footer'
-import { ContactForm } from '@/components/contact-form'
-import { ArrowDownRight, Mail, MapPin } from 'lucide-react'
+import { ContactDetails } from '@/components/contact/contact-details'
+import { ContactForm } from '@/components/contact/contact-form'
+import { PageHero } from '@/components/shared/page-hero'
+import { Reveal } from '@/components/shared/reveal'
+import { SectionHeading } from '@/components/shared/section-heading'
 
-export default function Contact(){return <><SiteHeader/><main className="bg-[#f8f3e9] pt-20"><section className="relative overflow-hidden bg-[#082c36] px-6 py-28 text-[#f8f3e9] lg:px-12 lg:py-36"><div className="absolute -right-20 -top-40 size-[520px] rounded-full border border-[#d8b76a]/30"/><div className="absolute -right-4 -top-24 size-[360px] rounded-full border border-[#d8b76a]/20"/><div className="relative mx-auto flex max-w-[1400px] items-end justify-between gap-10"><div><p className="text-xs font-semibold uppercase tracking-[.3em] text-[#d8b76a]">Let&apos;s connect</p><h1 className="mt-5 max-w-4xl font-serif text-[clamp(4rem,9vw,8rem)] leading-[.86] tracking-[-.07em]">Let&apos;s make<br/><em className="font-normal text-[#d8b76a]">something real.</em></h1></div><ArrowDownRight className="mb-3 hidden size-12 text-[#b9ddd5] md:block"/></div></section><section className="mx-auto grid max-w-[1400px] gap-16 px-6 py-28 lg:grid-cols-[.75fr_1.25fr] lg:px-12"><div><p className="text-xs font-semibold uppercase tracking-[.3em] text-[#b28335]">Get in touch</p><h2 className="mt-5 font-serif text-5xl leading-[.95] tracking-[-.05em] text-[#082c36]">Every good<br/><em className="font-normal text-[#b28335]">idea starts here.</em></h2><p className="mt-7 max-w-sm leading-7 text-[#536b70]">Share a little about your idea, property, or partnership. Our team will get back to you soon.</p><div className="mt-10 space-y-5 text-sm text-[#082c36]"><div className="flex items-center gap-3"><MapPin className="size-5 text-[#b28335]"/> Rum Cay, Long Island, Bahamas</div><div className="flex items-center gap-3"><Mail className="size-5 text-[#b28335]"/> hello@snh-inc.com</div></div></div><div className="rounded-2xl bg-[#e9dfcf] p-6 md:p-10"><ContactForm/></div></section><section className="px-6 pb-28 lg:px-12"><div className="mx-auto max-w-[1400px] overflow-hidden rounded-2xl border border-[#d6cbb9] bg-white"><iframe title="SNH-INC Bahamas location map" src="https://www.google.com/maps?q=Rum+Cay,+The+Bahamas&output=embed" className="h-[320px] w-full border-0 md:h-[430px]" loading="lazy"/></div></section></main><SiteFooter/></>}
+export default function Contact() {
+  return (
+    <main className="bg-sand-100">
+      <PageHero
+        eyebrow="Let's connect"
+        title={
+          <>
+            Let&apos;s make <em className="font-normal text-gold-400">something real.</em>
+          </>
+        }
+        body="Share a little about your idea, property, or partnership. Our team will get back to you soon."
+      />
+
+      <section className="mx-auto grid max-w-7xl gap-16 px-6 py-24 md:py-32 lg:grid-cols-[0.75fr_1.25fr] lg:px-8">
+        <div className="flex flex-col gap-12">
+          <SectionHeading
+            eyebrow="Get in touch"
+            title={
+              <>
+                Every good idea <em className="font-normal text-gold-600">starts here.</em>
+              </>
+            }
+          />
+          <Reveal delay={0.2}>
+            <ContactDetails />
+          </Reveal>
+        </div>
+
+        <Reveal delay={0.1}>
+          <div className="rounded-3xl bg-sand-300/60 p-6 md:p-10">
+            <ContactForm />
+          </div>
+        </Reveal>
+      </section>
+
+      <section className="px-6 pb-24 md:pb-32 lg:px-8">
+        <Reveal>
+          <div className="mx-auto max-w-7xl overflow-hidden rounded-3xl ring-1 ring-sand-400/60">
+            <iframe
+              title="SNH-INC Bahamas location map"
+              src="https://www.google.com/maps?q=Rum+Cay,+The+Bahamas&output=embed"
+              className="h-[320px] w-full border-0 md:h-[430px]"
+              loading="lazy"
+            />
+          </div>
+        </Reveal>
+      </section>
+    </main>
+  )
+}
