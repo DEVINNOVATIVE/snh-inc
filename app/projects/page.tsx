@@ -1,3 +1,4 @@
+import { ButtonLink } from '@/components/shared/button-link'
 import { CtaBand } from '@/components/shared/cta-band'
 import { PageHero } from '@/components/shared/page-hero'
 import { ProjectBrowser } from '@/components/projects/project-browser'
@@ -6,6 +7,7 @@ export default function Projects() {
   return (
     <main className="bg-sand-100">
       <PageHero
+        image="/images/marina.jpg"
         eyebrow="Projects"
         title={
           <>
@@ -13,7 +15,10 @@ export default function Projects() {
           </>
         }
         body="A look at the homes, land, and business ventures we are developing across the islands."
-      />
+      >
+        <ButtonLink href="/contact">Ask about a project</ButtonLink>
+        <ButtonLink href="/services" variant="secondary">See our services</ButtonLink>
+      </PageHero>
       <section className="px-6 py-24 md:py-32 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <ProjectBrowser />

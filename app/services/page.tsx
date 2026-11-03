@@ -1,3 +1,4 @@
+import { ButtonLink } from '@/components/shared/button-link'
 import { CtaBand } from '@/components/shared/cta-band'
 import { FaqList } from '@/components/shared/faq-list'
 import { PageHero } from '@/components/shared/page-hero'
@@ -11,6 +12,7 @@ export default function Services() {
   return (
     <main className="bg-sand-100">
       <PageHero
+        image="/images/beach-house.jpg"
         eyebrow="Our services"
         title={
           <>
@@ -18,7 +20,10 @@ export default function Services() {
           </>
         }
         body="Housing, land development, and business opportunities, each shaped by the place and the people behind it."
-      />
+      >
+        <ButtonLink href="/contact">Discuss your project</ButtonLink>
+        <ButtonLink href="#housing" variant="secondary">Explore housing</ButtonLink>
+      </PageHero>
 
       {services.map((service, index) => (
         <ServiceDetail key={service.id} service={service} reverse={index % 2 === 1} />

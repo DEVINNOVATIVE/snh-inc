@@ -1,6 +1,7 @@
 import { AddressSection } from '@/components/about/address-section'
 import { FounderNote, Story } from '@/components/about/story'
 import { RumCayHistory } from '@/components/about/rum-cay-history'
+import { ButtonLink } from '@/components/shared/button-link'
 import { CtaBand } from '@/components/shared/cta-band'
 import { PageHero } from '@/components/shared/page-hero'
 import { SectionHeading } from '@/components/shared/section-heading'
@@ -10,6 +11,7 @@ export default function About() {
   return (
     <main className="bg-sand-100">
       <PageHero
+        image="/images/hero.jpg"
         eyebrow="About SNH-INC"
         title={
           <>
@@ -17,7 +19,10 @@ export default function About() {
           </>
         }
         body="We bring together homes, land, and business opportunities for people who care about the islands and want to build something lasting."
-      />
+      >
+        <ButtonLink href="/contact">Get in touch</ButtonLink>
+        <ButtonLink href="/services" variant="secondary">Our services</ButtonLink>
+      </PageHero>
       <Story />
       <RumCayHistory />
       <section className="px-6 py-24 md:py-32 lg:px-8">

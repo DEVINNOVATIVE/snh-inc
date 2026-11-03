@@ -39,6 +39,16 @@
 
   --font-serif: 'DM Serif Display', Georgia, serif;
   --font-sans: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+  --animate-hero-zoom: hero-zoom 20s ease-out forwards;
+}
+
+@keyframes hero-zoom {
+  from { transform: scale(1.12); }
+  to { transform: scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-hero-zoom { animation: none; }
 }
 
 @theme inline {
