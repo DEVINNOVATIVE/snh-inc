@@ -1,6 +1,7 @@
 import { AddressSection } from '@/components/about/address-section'
 import { FounderNote, Story } from '@/components/about/story'
 import { RumCayHistory } from '@/components/about/rum-cay-history'
+import { VideoSection } from '@/components/about/video-section'
 import { ButtonLink } from '@/components/shared/button-link'
 import { CtaBand } from '@/components/shared/cta-band'
 import { PageHero } from '@/components/shared/page-hero'
@@ -25,6 +26,7 @@ export default function About() {
       </PageHero>
       <Story />
       <RumCayHistory />
+      <VideoSection />
       <section className="px-6 py-24 md:py-32 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <SectionHeading
