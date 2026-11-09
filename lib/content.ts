@@ -101,7 +101,7 @@ export const projects: {
     location: 'Long Island',
     status: 'Design phase',
     summary: 'Private retreat residences designed for weekends, seasons, and slower days.',
-    image: 'https://images.pexels.com/photos/8516812/pexels-photo-8516812.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    image: '/images/swimming-pool-in-nandana-villas_1.jpg',
   },
   {
     title: 'Coastal Land Parcels',
@@ -117,7 +117,7 @@ export const projects: {
     location: 'Bahamas',
     status: 'Seeking partners',
     summary: 'A waterfront site prepared for mixed-use development with careful landscape planning.',
-    image: 'https://images.pexels.com/photos/33807276/pexels-photo-33807276.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    image: '/images/69b08192babf2a612e795e39857a98c0f23aec3a8f0565bc48bb4243a19bae47.jpg',
   },
   {
     title: 'Marina Business Hub',
@@ -133,7 +133,7 @@ export const projects: {
     location: 'Bahamas',
     status: 'Open for applications',
     summary: 'A structured path for local founders and outside investors to build together.',
-    image: 'https://images.pexels.com/photos/465118/pexels-photo-465118.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    image: '/images/lord-neil-benjamin (2).jpg',
   },
 ]
 

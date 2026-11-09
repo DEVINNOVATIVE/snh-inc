@@ -5,25 +5,37 @@ import { SiteHeader } from '@/components/site-header'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'SNH-INC Bahamas | Island Development & Opportunity',
-  description: 'Housing, land, and business opportunities rooted in the Bahamas.',
-  generator: 'v0.app',
+  metadataBase: new URL('https://snh-inc.com'),
+  title: 'SNH-ICH Bahamas Luxury Real Estate',
+  description:
+    'Search for luxury real estate in Bahamas with us. View our exclusive listings of Bahamas homes and connect with an agent today.',
+  alternates: {
+    canonical: 'https://snh-inc.com/',
+  },
   icons: {
-    icon: [
+    icon: '/snh-inc.com-favicon-32x32.png',
+    apple: '/snh-inc.com-favicon-32x32.png',
+  },
+  openGraph: {
+    locale: 'en_US',
+    type: 'website',
+    title: 'SNH-ICH Bahamas Luxury Real Estate',
+    description:
+      'Search for luxury real estate in Bahamas with us. View our exclusive listings of Bahamas homes and connect with an agent today.',
+    url: 'https://snh-inc.com/',
+    siteName: 'Snh-inc Bahamas',
+    modifiedTime: '2026-03-13T06:19:42+00:00',
+    images: [
       {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
+        url: '/images/Treasure_Cay_Marina.jpg',
+        width: 600,
+        height: 400,
+        alt: 'Treasure Cay Marina in The Bahamas',
       },
     ],
-    apple: '/apple-icon.png',
+  },
+  twitter: {
+    card: 'summary_large_image',
   },
 }
 

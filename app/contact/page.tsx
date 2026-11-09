@@ -10,7 +10,7 @@ export default function Contact() {
   return (
     <main className="bg-sand-100">
       <PageHero
-        image="https://images.pexels.com/photos/1637117/pexels-photo-1637117.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+        image="/images/Untitled-1321.jpg"
         eyebrow="Let's connect"
         title={
           <>

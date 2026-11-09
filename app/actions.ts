@@ -28,40 +28,10 @@ export async function sendContact(_previous: ContactState, formData: FormData): 
 
   const interest = (interests as readonly string[]).includes(interestInput) ? interestInput : 'Something else'
 
-  const supabaseUrl = process.env.SUPABASE_URL
-  const anonKey = process.env.SUPABASE_ANON_KEY
-  if (!supabaseUrl || !anonKey) {
+  const sent = await notifyByEmail({ firstName, lastName, email, interest, message })
+  if (!sent) {
     return { error: 'We could not send your message right now. Please try again later.' }
   }
-
-  let response: Response
-  try {
-    response = await fetch(`${supabaseUrl}/rest/v1/inquiries`, {
-      method: 'POST',
-      headers: {
-        apikey: anonKey,
-        Authorization: `Bearer ${anonKey}`,
-        'Content-Type': 'application/json',
-        Prefer: 'return=minimal',
-      },
-      body: JSON.stringify({
-        first_name: firstName,
-        last_name: lastName,
-        email,
-        interest,
-        message,
-      }),
-      cache: 'no-store',
-    })
-  } catch {
-    return { error: 'We could not reach our server. Please check your connection and try again.' }
-  }
-
-  if (!response.ok) {
-    return { error: 'We could not send your message right now. Please try again later.' }
-  }
-
-  await notifyByEmail({ firstName, lastName, email, interest, message })
 
   return { success: 'Thanks. Your message has been sent and our team will be in touch soon.' }
 }
@@ -72,9 +42,12 @@ async function notifyByEmail(details: {
   email: string
   interest: string
   message: string
-}) {
+}): Promise<boolean> {
   const { SMTP_HOST, SMTP_USER, SMTP_PASSWORD, CONTACT_TO_EMAIL } = process.env
-  if (!SMTP_HOST || !SMTP_USER || !SMTP_PASSWORD || !CONTACT_TO_EMAIL) return
+  if (!SMTP_HOST || !SMTP_USER || !SMTP_PASSWORD || !CONTACT_TO_EMAIL) {
+    console.error('Contact email is not configured: SMTP_HOST, SMTP_USER, SMTP_PASSWORD, and CONTACT_TO_EMAIL are required')
+    return false
+  }
 
   const transporter = nodemailer.createTransport({
     host: SMTP_HOST,
@@ -91,7 +64,9 @@ async function notifyByEmail(details: {
       subject: `New SNH-INC inquiry from ${details.firstName} ${details.lastName}`,
       text: `Name: ${details.firstName} ${details.lastName}\nEmail: ${details.email}\nInterest: ${details.interest}\n\n${details.message}`,
     })
+    return true
   } catch (error) {
     console.error('Contact notification email failed', error)
+    return false
   }
 }
