@@ -19,6 +19,8 @@ export function Hero() {
       <div className="absolute inset-0 bg-linear-to-r from-ocean-950/95 via-ocean-900/70 to-ocean-900/20" />
       <div className="absolute inset-0 bg-linear-to-t from-ocean-950 via-ocean-950/20 to-ocean-950/45" />
       <div className="pointer-events-none absolute inset-0 opacity-[0.04] [background-image:linear-gradient(rgba(255,255,255,.5)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.5)_1px,transparent_1px)] [background-size:4rem_4rem]" />
+      <div className="pointer-events-none absolute -right-32 top-1/4 size-96 rounded-full border border-gold-400/15 sm:size-[30rem]" />
+      <div className="pointer-events-none absolute -right-16 top-[30%] size-64 rounded-full border border-sand-100/10 sm:size-80" />
 
       <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-1 items-center px-6 pb-40 pt-32 sm:px-8 sm:pb-44 sm:pt-40 lg:px-12">
         <div className="w-full max-w-3xl">
@@ -57,9 +59,24 @@ export function Hero() {
           </Reveal>
         </div>
 
+        <Reveal delay={0.35}>
+          <div className="absolute right-8 top-1/2 hidden w-56 -translate-y-1/2 rounded-2xl border border-sand-100/20 bg-ocean-950/35 p-5 shadow-2xl shadow-ocean-950/30 backdrop-blur-md lg:block xl:right-12">
+            <p className="text-[0.65rem] font-semibold uppercase tracking-[0.25em] text-gold-300">
+              Island living
+            </p>
+            <p className="mt-4 font-serif text-2xl leading-tight text-sand-100">
+              Made for the <em className="font-normal text-gold-400">long view.</em>
+            </p>
+            <div className="mt-5 h-px w-full bg-sand-100/15" />
+            <p className="mt-4 text-xs leading-5 text-sand-100/65">
+              Place, purpose, and possibility—thoughtfully brought together.
+            </p>
+          </div>
+        </Reveal>
+
         <Reveal delay={0.4}>
           <div className="absolute inset-x-6 bottom-8 sm:inset-x-8 lg:inset-x-12">
-            <div className="grid grid-cols-3 gap-3 border-t border-sand-100/15 pt-5 sm:gap-5 sm:pt-7">
+            <div className="grid grid-cols-3 gap-3 border-t border-sand-100/20 pt-5 sm:gap-5 sm:pt-7">
               {heroHighlights.map((item) => (
                 <div key={item.label}>
                   <item.icon className="mb-2 size-4 text-gold-400 sm:size-5" />

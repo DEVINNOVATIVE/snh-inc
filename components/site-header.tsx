@@ -41,7 +41,7 @@ export function SiteHeader() {
     <header
       className={cn(
         'top-0 z-50 transition-all duration-500',
-        isHome ? 'absolute inset-x-0' : 'sticky',
+        isHome ? 'sticky inset-x-0' : 'sticky',
         overlay
           ? 'border-b border-transparent bg-transparent'
           : 'border-b border-sand-300/70 bg-sand-50/95 shadow-sm backdrop-blur-md',

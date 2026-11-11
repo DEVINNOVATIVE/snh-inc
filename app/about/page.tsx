@@ -43,7 +43,7 @@ export default function About() {
         </div>
       </section>
       <FounderNote />
-      <AddressSection />
+      {/* <AddressSection /> */}
       <CtaBand
         title="Let us learn about your goals."
         body="Whether you are looking for a home, a parcel of land, or a business partner, we would love to hear from you."

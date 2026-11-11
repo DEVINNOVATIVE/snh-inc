@@ -10,7 +10,7 @@ export const navLinks = [
 
 export const company = {
   name: 'SNH-INC Bahamas',
-  email: 'hello@snh-inc.com',
+  email: 'Lnbg@lnbgllc.com',
   address: '1 Long Beach, Rum Cay, Bahamas, BA10',
   location: 'Rum Cay, Long Island, Bahamas',
 }

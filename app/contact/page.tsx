@@ -45,7 +45,7 @@ export default function Contact() {
         </Reveal>
       </section>
 
-      <LocationMap />
+      {/* <LocationMap /> */}
     </main>
   )
 }
