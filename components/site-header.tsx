@@ -10,24 +10,14 @@ import { navLinks } from '@/lib/content'
 export function SiteHeader() {
   const pathname = usePathname()
   const [open, setOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
 
-  const isHome = pathname === '/'
-  const overlay = isHome && !scrolled && !open
+  const overlay = true
 
   const isActive = (href: string) =>
     href === '/' ? pathname === '/' : pathname.startsWith(href)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24)
-    onScroll()
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
-
-  useEffect(() => {
     setOpen(false)
-    setScrolled(window.scrollY > 24)
   }, [pathname])
 
   useEffect(() => {
@@ -40,19 +30,23 @@ export function SiteHeader() {
   return (
     <header
       className={cn(
-        'top-0 z-50 transition-all duration-500',
-        isHome ? 'sticky inset-x-0' : 'sticky',
-        overlay
-          ? 'border-b border-transparent bg-transparent'
-          : 'border-b border-sand-300/70 bg-sand-50/95 shadow-sm backdrop-blur-md',
+        'absolute inset-x-0 top-0 z-50 px-3 pt-3 transition-all duration-500 sm:px-5 sm:pt-5',
+        'bg-transparent',
       )}
     >
-      <div className="mx-auto flex h-[4.5rem] max-w-7xl items-center justify-between gap-3 px-6 sm:h-[4.75rem] lg:px-8">
+      <div
+        className={cn(
+          'mx-auto flex h-[4.25rem] max-w-7xl items-center justify-between gap-3 rounded-2xl border px-4 transition-all duration-500 sm:h-[4.75rem] sm:px-5 lg:px-6',
+          overlay
+            ? 'border-sand-100/15 bg-ocean-950/10 shadow-lg shadow-ocean-950/5 backdrop-blur-md'
+            : 'border-sand-300/70 bg-transparent shadow-lg shadow-ocean-950/5 backdrop-blur-xl',
+        )}
+      >
         <Link
           href="/"
           onClick={() => setOpen(false)}
           className={cn(
-            'font-serif text-xl tracking-wide transition-colors',
+            'font-serif text-lg tracking-wide transition-colors sm:text-xl',
             overlay ? 'text-sand-100' : 'text-ocean-900',
           )}
         >
@@ -94,7 +88,7 @@ export function SiteHeader() {
 
         <Link
           href="/contact"
-          className="hidden h-11 items-center rounded-full bg-gold-400 px-6 text-sm font-semibold text-ocean-950 shadow-md shadow-gold-400/20 transition-all hover:bg-gold-300 hover:shadow-lg hover:shadow-gold-400/30 md:inline-flex"
+          className="hidden h-11 items-center rounded-full bg-gold-400 px-5 text-sm font-semibold text-ocean-950 shadow-md shadow-gold-400/20 transition-all hover:-translate-y-0.5 hover:bg-gold-300 hover:shadow-lg hover:shadow-gold-400/30 md:inline-flex"
         >
           Get in touch
         </Link>
@@ -116,7 +110,7 @@ export function SiteHeader() {
       </div>
 
       {open && (
-        <div className="max-h-[calc(100dvh-4.5rem)] overflow-y-auto border-t border-sand-300/70 bg-sand-50/95 backdrop-blur-md md:hidden">
+        <div className="mx-1 mt-2 max-h-[calc(100dvh-6rem)] overflow-y-auto rounded-2xl border border-sand-300/70 bg-sand-50/95 shadow-xl backdrop-blur-md md:hidden">
           <nav
             className="mx-auto flex max-w-7xl flex-col gap-1 px-6 py-4 lg:px-8"
             aria-label="Mobile"

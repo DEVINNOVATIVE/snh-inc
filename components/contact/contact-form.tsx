@@ -39,7 +39,7 @@ export function ContactForm() {
             id="interest"
             name="interest"
             defaultValue={interests[0]}
-            className="flex h-11 w-full cursor-pointer rounded-lg border border-[#cfc3af] bg-[#f8f3e9] px-3 text-sm text-[#082c36] outline-none transition focus:border-[#0b5560] focus:ring-2 focus:ring-[#0b5560]/20"
+            className="flex h-12 w-full cursor-pointer rounded-xl border border-sand-400 bg-sand-100 px-4 text-sm text-ocean-900 outline-none transition focus:border-ocean-700 focus:ring-2 focus:ring-ocean-700/20"
           >
             {interests.map((option) => (
               <option key={option} value={option}>

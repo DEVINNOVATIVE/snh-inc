@@ -24,7 +24,7 @@ export function SectionHeading({
       </Reveal>
       <Reveal delay={0.1}>
         <h2
-          className={`font-serif text-4xl leading-tight tracking-tight md:text-6xl ${isDark ? 'text-sand-100' : 'text-ocean-900'}`}
+          className={`max-w-3xl font-serif text-4xl leading-[1.02] tracking-[-0.025em] md:text-6xl ${isDark ? 'text-sand-100' : 'text-ocean-900'}`}
         >
           {title}
         </h2>

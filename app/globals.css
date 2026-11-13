@@ -40,6 +40,12 @@
   --font-serif: 'DM Serif Display', Georgia, serif;
   --font-sans: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
   --animate-hero-zoom: hero-zoom 20s ease-out forwards;
+  --animate-hero-image: hero-image 18s ease-in-out infinite alternate;
+  --animate-hero-slide-1: hero-slide 18s ease-in-out infinite;
+  --animate-hero-slide-2: hero-slide 18s ease-in-out -6s infinite;
+  --animate-hero-slide-3: hero-slide 18s ease-in-out -12s infinite;
+  --animate-hero-title: hero-title 1s 0.4s both cubic-bezier(0.22, 1, 0.36, 1);
+  --animate-hero-glow: hero-glow 4s ease-in-out infinite;
 }
 
 @keyframes hero-zoom {
@@ -47,8 +53,36 @@
   to { transform: scale(1); }
 }
 
+@keyframes hero-image {
+  from { transform: scale(1.02) translate3d(0, 0, 0); }
+  to { transform: scale(1.08) translate3d(-1.5%, -1%, 0); }
+}
+
+@keyframes hero-slide {
+  0%, 4% { opacity: 0; transform: scale(1.06); }
+  10%, 32% { opacity: 1; transform: scale(1); }
+  38%, 100% { opacity: 0; transform: scale(1.06); }
+}
+
+@keyframes hero-title {
+  from { opacity: 0; transform: translateY(1.25rem); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes hero-glow {
+  0%, 100% { text-shadow: 0 0 0 rgb(216 183 106 / 0); }
+  50% { text-shadow: 0 0 1.5rem rgb(216 183 106 / 0.35); }
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .animate-hero-zoom { animation: none; }
+  .animate-hero-zoom,
+  .animate-hero-image,
+  .animate-hero-slide-1,
+  .animate-hero-slide-2,
+  .animate-hero-slide-3,
+  .animate-hero-title,
+  .animate-hero-glow,
+  .animate-pulse { animation: none; }
 }
 
 @theme inline {
@@ -94,7 +128,7 @@
 
 :root {
   color-scheme: light;
-  --background: #f8f3e9;
+  --background: #f7f5ef;
   --foreground: #082c36;
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
@@ -167,12 +201,20 @@
   * {
     @apply border-border outline-ring/50;
   }
-  html { scroll-behavior: smooth; }
+  html {
+    scroll-behavior: smooth;
+    background: #f7f5ef;
+  }
   body {
     @apply bg-background text-foreground;
     font-family: 'DM Sans', sans-serif;
+    text-rendering: optimizeLegibility;
   }
-  h1, h2, h3 { font-family: 'DM Serif Display', Georgia, serif; }
+  h1, h2, h3 {
+    font-family: 'DM Serif Display', Georgia, serif;
+    text-wrap: balance;
+  }
   ::selection { background: #d8b76a; color: #082c36; }
+  a, button, input, select, textarea { -webkit-tap-highlight-color: transparent; }
 
 }
